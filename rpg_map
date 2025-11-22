@@ -48,3 +48,16 @@ for node in G.nodes():
             G[node][vizinho]['weight'] = peso
 
 G.remove_nodes_from(nos_para_remover)
+def heuristica(a, b):
+    return abs(a[0] - b[0]) + abs(a[1] - b[1])
+
+print("Calculando a melhor rota considerando os terrenos...")
+caminho = []
+custo_total = 0
+
+try:
+    caminho = nx.astar_path(G, inicio, objetivo, heuristic=heuristica, weight='weight')
+    custo_total = sum(G[u][v]['weight'] for u, v in zip(caminho[:-1], caminho[1:]))
+    print(f"SUCESSO! Passos: {len(caminho)} | Custo (Esforço): {custo_total}")
+except nx.NetworkXNoPath:
+    print("O mapa gerado bloqueou o caminho totalmente. Tente novamente.")
