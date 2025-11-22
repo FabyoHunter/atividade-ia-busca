@@ -13,3 +13,20 @@ print(f"Gerando mundo RPG {TAMANHO}x{TAMANHO}...")
 G = nx.grid_2d_graph(TAMANHO, TAMANHO)
 inicio = (0, 0)
 objetivo = (TAMANHO - 1, TAMANHO - 1)
+
+tipo_terreno = {} 
+
+for node in G.nodes():
+    
+    if node == inicio or node == objetivo:
+        tipo_terreno[node] = 'grama'
+        continue
+    
+    if sorteio < 0.60:
+        tipo_terreno[node] = 'grama'
+    elif sorteio < 0.80:
+        tipo_terreno[node] = 'floresta'
+    elif sorteio < 0.90:
+        tipo_terreno[node] = 'agua'
+    else:
+        tipo_terreno[node] = 'muro'
