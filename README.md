@@ -50,5 +50,5 @@ pip install networkx matplotlib
 Confira a explicação detalhada do código e a demonstração de execução no link abaixo:
 
 ```bash
-https://youtu.be/nOWXQHti6Qc
+https://youtu.be/7r7LKm5wt4g
 ```
